@@ -1,0 +1,5 @@
+ streamlit 
+ pandas 
+ psycopg2 
+ kafka-python 
+ python-dotenv

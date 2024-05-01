@@ -19,7 +19,7 @@ You'll need to create a working python envrionment and deploy the resources nece
 ```bash
 conda create --name digitalocean python=3.11
 conda activate digitalocean
-pip install streamlit pandas psycopg2 kafka-python python-dotenv jq faker
+pip install streamlit pandas psycopg2 kafka-python python-dotenv
 ```
 
 # Terraform for DigitalOcean
