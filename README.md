@@ -95,7 +95,7 @@ jq '.database.connection.uri')
 
 Generate a free [Accuweather API Key](https://developer.accuweather.com/user/register)
 
-In the *project root directory* (`cd ..`) create a `.env` file with following template:
+In the *project root directory* (`cd ..`) create a `.env` file with following template, making sure to use the SSL port for Kafka (vs the SASL).
 
 ```python
 WEATHER_API_KEY = "Accuweather API KEY"
@@ -104,7 +104,7 @@ WEATHER_TOPIC = "weather_data"
 ```
 
 Run consumer dashboard in the background:
-```python
+```pytho
 streamlit run weather_consumer.py &
 ```
 ![](/images/consumer.png)
@@ -222,7 +222,7 @@ ssl.keystore.type=PKCS12
 ```
 
 Create a sales table...
-`psql $DO_CONNECTION_URL -f sql/postgres.sql`
+`psql $PG_CONNECT -f sql/postgres.sql`
 
 With the Connect Service running, we'll add the Debezium configuration for the Postgres service:
 
