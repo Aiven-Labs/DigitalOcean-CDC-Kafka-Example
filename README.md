@@ -87,7 +87,7 @@ jq -r '.database.users[].access_key' > ../.certificates/user-access-key.key
 Use the `terraform output postgres_uuid` to export a connection string for the PG service:
 
 ```bash
-export DO_CONNECTION_URL=$(curl -s -X GET "https://api.digitalocean.com/v2/databases/$(terraform output postgres_uuid)" \
+export PG_CONNECT=$(curl -s -X GET "https://api.digitalocean.com/v2/databases/$(terraform output postgres_uuid)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer $TF_VAR_api_token" | \
 jq '.database.connection.uri')
@@ -120,7 +120,15 @@ You should be able to produce weather data for the Kafka instance, processed and
 # CDC Example (Postgres > Kafka)
 
 DigitalOcean does not currently support Kafka Connect -- 
+Kafka Connect is modular in nature, providing a very powerful way of handling integration requirements. 
 
+Some key components include:
+
+* Connectors – the JAR files that define how to integrate with the data store itself
+* Converters – handling serialization and deserialization of data
+* Transforms – optional in-flight manipulation of messages
+
+**We'll deploy our own for now...**
 In the certificates directory, use the openssl tooling to create a key and truststore.
 For simplicity, use the same password.
 
