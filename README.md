@@ -236,7 +236,7 @@ With the Connect Service running, we'll add the Debezium configuration for the P
     "database.hostname": "demo-postgres-do-user-11144278-0.c.db.ondigitalocean.com",
     "database.port": "25060",
     "database.user": "doadmin",
-    "database.password": "AVNS_sGtT9bMnez1l5J434I2",
+    "database.password": "<PWD>",
     "database.dbname": "defaultdb",
     "plugin.name": "pgoutput",
     "key.converter": "org.apache.kafka.connect.json.JsonConverter",
